@@ -5,3 +5,4 @@ line_follower
 line_follower.exe
 Makefile
 .fuse_hidden*
+/venv
