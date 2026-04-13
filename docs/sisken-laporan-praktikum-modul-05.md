@@ -4,19 +4,14 @@ Kelas: D3TK-48-01
 
 ---
 
-<h1>
-<center>
-
+<center> <h1>
 LAPORAN PRAKTIKUM SISTEM KENDALI <br>
 MODUL 05: Sistem Kendali PID Kasus P dan D
-
-</center>
-</h1>
+</h1> </center>
 
 ---
 
 ## 1. JUDUL PRAKTIKUM
-
 Sistem Kendali PID Kasus P dan D
 
 ## 2. MAKSUD DAN TUJUAN
@@ -56,9 +51,7 @@ $$u(t) = K_p e(t) + K_p T_d \frac{de(t)}{dt}$$
 
 Dalam penerapannya di software, kondisi ideal pada robot adalah bergerak maju lurus mengikuti garis, dengan kata lain error = 0 . Dari sini dapat diasumsikan bahwa Set Point (SP) / kondisi ideal adalah saat SP = 0. Nilai sensor yang dibaca oleh sensor disebut Process Variable (PV) / nilai aktual pembacaan. Menyimpangnya posisi robot dari garis disebut sebagai error (e), yang didapat dari e = SP – PV. Dengan mengetahui besar error, mikrokontroler dapat memberikan nilai PWM motor kiri dan kanan yang sesuai agar dapat menuju ke posisi ideal (SP = 0). Besarnya nilai PWM ini dapat diperoleh dengan menggunakan kontrol Proporsional (P), dimana P = e x Kp (Kp adalah konstanta proporsional yang nilainya diset sendiri dari hasil tuning/trial and error).
 
-Jika pergerakan robot masih terlihat bergelombang, dapat ditambahkan parameter kontrol Derivatif (D). Kontrol D digunakan untuk mengukur seberapa cepat robot bergerak dari kiri ke kanan atau dari kanan ke kiri. Semakin cepat bergerak dari satu sisi ke sisi lainnya, maka
-semakin besar nilai D. Konstanta D (K d) digunakan untuk menambah atau mengurangi imbas dari derivatif. Dengan mendapatkan nilai Kd yang tepat pergerakan sisi ke sisi yang bergelombang akibat dari kontrol proporsional dapat diminimalisasi. Dengan mendapatkan nilai K d yang tepat pergerakan sisi ke sisi yang bergelombang akibat dari kontrol proporsional bisa diminimalisasi. Nilai D didapat dari D = Kd/Ts x rate, dimana Ts adalah time sampling atau waktu cuplik dan rate = e(n) – e(n-1). Dalam program, nilai error (SP – PV) saat itu menjadi
-nilai last_error, sehingga rate didapat dari error – last_error.
+Jika pergerakan robot masih terlihat bergelombang, dapat ditambahkan parameter kontrol Derivatif (D). Kontrol D digunakan untuk mengukur seberapa cepat robot bergerak dari kiri ke kanan atau dari kanan ke kiri. Semakin cepat bergerak dari satu sisi ke sisi lainnya, maka semakin besar nilai D. Konstanta D (K d) digunakan untuk menambah atau mengurangi imbas dari derivatif. Dengan mendapatkan nilai Kd yang tepat pergerakan sisi ke sisi yang bergelombang akibat dari kontrol proporsional dapat diminimalisasi. Dengan mendapatkan nilai K d yang tepat pergerakan sisi ke sisi yang bergelombang akibat dari kontrol proporsional bisa diminimalisasi. Nilai D didapat dari D = Kd/Ts x rate, dimana Ts adalah time sampling atau waktu cuplik dan rate = e(n) – e(n-1). Dalam program, nilai error (SP – PV) saat itu menjadi nilai last_error, sehingga rate didapat dari error – last_error.
 
 ### **Tabel Parameter PID**
 
@@ -120,9 +113,9 @@ Kemudian menambahkan kode program dengan ketentuan sebagai berikut:
 
 ### 5.1. PERTANYAAN PRAKTIKUM
 1. Jelaskan fungsi dari variabel yang telah ditambahkan pada program di atas terhadap mekanisme sistem kendali pada robot line follower!
-    Jawab:
+    Jawab: Variabel-variabel tersebut memiliki peran spesifik dalam sistem navigasi robot. Kp dan Kd adalah parameter pengali untuk aksi kendali, sedangkan error dan lastError berfungsi sebagai representasi posisi saat ini serta sebelumnya. Variabel rate menghitung kecepatan perubahan _error_ untuk memprediksi arah gerakan robot ke depan. moveControl mengintegrasikan kedua aksi kendali tersebut untuk menentukan penyesuaian _duty cycle_ pada kecepatanMotorKanan dan kecepatanMotorKiri agar robot kembali ke posisi _setpoint_ secara stabil.
 2. Jelaskan fungsi dari Kp dan Kd pada kode program di atas!
-    Jawab:
+    Jawab: Kp (Proportional) berfungsi sebagai pengontrol utama yang memberikan respon koreksi sebanding dengan besarnya simpangan (_error_) saat ini untuk mempercepat robot kembali ke garis. Sementara itu, Kd (Derivative) berfungsi sebagai peredam yang memberikan respon berdasarkan laju perubahan _error_ guna mengantisipasi gerakan berlebih (_overshoot_) dan mengurangi goyangan atau osilasi pada robot saat melakukan koreksi posisi.
 
 ### 5.2. KODE PROGRAM
 
@@ -433,8 +426,14 @@ void doCalibration() {
 ```
 
 ## 6. KESIMPULAN
-
-
-
+Berdasarkan hasil praktikum, dapat disimpulkan bahwa penerapan kendali Proporsional-Derivatif (PD) efektif dalam meningkatkan stabilitas pergerakan robot _line follower_. Penambahan parameter derivatif ($K_d$) melalui variabel _rate_ mampu meredam osilasi yang muncul akibat agresivitas kendali proporsional ($K_p$). Implementasi fitur _auto calibration_ juga memberikan fleksibilitas pada robot untuk beradaptasi dengan intensitas cahaya dan kontras warna lintasan yang bervariasi. Sinergi antara kalibrasi dinamis dan algoritma PD menghasilkan pergerakan robot yang lebih halus dan presisi dalam mengikuti garis. Pengaturan nilai konstanta yang tepat menjadi faktor krusial dalam meminimalkan waktu pemulihan (_settling time_) saat terjadi simpangan.
 
 ## 7. LAMPIRAN
+Link dokumentasi video:
+https://drive.google.com/drive/folders/1Lgzs5CNa1o80Mx8uDIgMI3fhwKW2n_Xc?usp=sharing
+
+
+Dokumentasi:
+![[modul-05-02.jpg | 500]]
+
+![[modul-05.jpg | 500]]

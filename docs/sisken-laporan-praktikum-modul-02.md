@@ -4,14 +4,10 @@ Kelas: D3TK-48-01
 
 ---
 
-<h1>
-<center>
-
+<center> <h1>
 LAPORAN PRAKTIKUM SISTEM KENDALI <br>
 MODUL 02: Sistem Kendali PWM
-
-</center>
-</h1>
+</h1> </center>
 
 ---
 
@@ -81,7 +77,7 @@ Membuat sebuah aplikasi sistem kendali PWM dengan ketentuan sebagai berikut:
 ### 5.1. PERTANYAAN PRAKTIKUM
 
 1. Jelaskan fungsi dari pengubahan berbagai duty cycle pada kondisi-kondisi di atas!
-    Jawab: 
+    Jawab: Pengubahan variasi _duty cycle_ berfungsi untuk mengatur tingkat kecepatan motor secara proporsional terhadap posisi robot di atas garis. Perbedaan nilai _duty cycle_ antara motor kiri dan kanan menciptakan perbedaan torsi dan kecepatan putar yang diperlukan untuk melakukan manuver koreksi posisi. Kondisi _duty cycle_ yang berbeda tersebut memungkinkan robot melakukan gerakan mulai dari maju lurus, belok halus, hingga belok tajam secara otomatis sesuai dengan kombinasi sensor yang mendeteksi garis hitam.
 
 ### 5.2. KODE PROGRAM
 
@@ -227,6 +223,13 @@ void setMotors(int leftSpeed, int rightSpeed) {
 ```
 
 ## 6. KESIMPULAN
-
+Berdasarkan hasil praktikum, dapat disimpulkan bahwa penerapan sistem kendali _Pulse Width Modulation_ (PWM) memungkinkan pengaturan kecepatan motor DC secara presisi melalui manipulasi _duty cycle_. Penggunaan variasi nilai _duty cycle_ pada robot _line follower_ memberikan kemampuan navigasi yang lebih halus dibandingkan sistem kendali _on/off_. Kecepatan putaran motor berbanding lurus dengan besarnya _duty cycle_ yang diberikan oleh mikrokontroler melalui fungsi _analogWrite_. Perbedaan kecepatan antara motor kiri dan kanan yang diatur berdasarkan pembacaan delapan sensor _photodiode_ memungkinkan robot untuk berbelok dengan radius yang bervariasi sesuai posisi garis. Ketepatan penentuan nilai PWM pada setiap kondisi sensor menjadi faktor penentu kestabilan robot saat melintasi tikungan.
 
 ## 7. LAMPIRAN
+Link dokumentasi video:
+https://drive.google.com/drive/folders/1Lgzs5CNa1o80Mx8uDIgMI3fhwKW2n_Xc?usp=sharing
+
+Dokumentasi:
+![[modul-02-01.jpg | 500]]
+
+![[modul-02.jpg | 500]]

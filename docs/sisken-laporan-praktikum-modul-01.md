@@ -4,14 +4,10 @@ Kelas: D3TK-48-01
 
 ---
 
-<h1>
-<center>
-
+<center> <h1>
 LAPORAN PRAKTIKUM SISTEM KENDALI <br>
 MODUL 01
-
-</center>
-</h1>
+</h1> </center>
 
 ---
 
@@ -70,9 +66,7 @@ Pada sistem kendali on/off di robot line follower, posisi pemasangan sensor, akt
 ### 5.1. PERTANYAAN PRAKTIKUM
 
 1. Apa yang terjadi ketika sensor dan LED dihadapkan pada permukaan yang berwarna hitam dan putih?
-    Jawab:
-2. Apabila sudah selesai dilaksanakan, perlihatkan hasil pada asisten.
-    Jawab:
+    Jawab: Perbedaan penyerapan energi cahaya terjadi saat sensor dan LED dihadapkan pada permukaan dengan warna yang berbeda. Permukaan berwarna putih akan memantulkan hampir seluruh cahaya dari LED menuju sensor _photodiode_, sehingga nilai hambatan sensor mengecil dan tegangan keluaran berubah. Sebaliknya, permukaan berwarna hitam akan menyerap sebagian besar cahaya tersebut, mengakibatkan minimnya pantulan yang diterima oleh sensor dan menghasilkan nilai pembacaan analog yang berbeda dibandingkan pada permukaan putih.
 
 ### 5.2. KODE PROGRAM
 
@@ -185,6 +179,15 @@ void setMotors(int leftSpeed, int rightSpeed) {
 ```
 
 ## 6. KESIMPULAN
-
-
+Berdasarkan hasil praktikum, dapat disimpulkan bahwa sistem kendali _on/off_ pada robot _line follower_ bekerja dengan memanfaatkan prinsip pemantulan cahaya oleh sensor _photodiode_. Cahaya LED yang mengenai permukaan putih akan dipantulkan dan diterima oleh sensor, sedangkan pada permukaan hitam cahaya akan diserap. Perbedaan nilai intensitas cahaya tersebut dikonversi menjadi sinyal diskrit oleh mikrokontroler untuk menentukan kondisi motor DC. Logika kendali yang diterapkan berhasil mengarahkan robot mengikuti lintasan dengan memberikan perintah _start_ atau _stop_ pada masing-masing motor berdasarkan input sensor. Keberhasilan navigasi robot sangat dipengaruhi oleh penentuan nilai ambang batas (_threshold_) dan posisi penempatan sensor terhadap garis.
 ## 7. LAMPIRAN
+Link dokumentasi video:
+https://drive.google.com/drive/folders/1Lgzs5CNa1o80Mx8uDIgMI3fhwKW2n_Xc?usp=sharing
+
+Dokumentasi:
+
+![[mod-01-pic-01.jpg | 400]]
+
+![[mod-01-pic-02.jpg | 400]]
+
+![[modul-01.jpg | 400]]

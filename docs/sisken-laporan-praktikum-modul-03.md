@@ -4,14 +4,10 @@ Kelas: D3TK-48-01
 
 ---
 
-<h1>
-<center>
-
+<center> <h1>
 LAPORAN PRAKTIKUM SISTEM KENDALI <br>
 MODUL 03: Sistem Kendali PWM (Pulse Width Modulation) dengan Error Detection Memory
-
-</center>
-</h1>
+</h1> </center>
 
 ---
 
@@ -67,7 +63,7 @@ Nilai setpoint didapatkan ketika kedua sensor di bagian tengah mendeteksi garis 
 ### 6. PERTANYAAN PRAKTIKUM
 
 1. Jelaskan fungsi dari stringkondisi terhadap mekanisme sistem kendali pada robot line follower!
-    Jawab:
+    Jawab: Variabel _stringkondisi_ berfungsi sebagai representasi digital dari pembacaan delapan sensor _photodiode_ untuk memetakan posisi robot terhadap garis secara real-time. Melalui pola biner yang dihasilkan, mikrokontroler dapat mengidentifikasi besarnya penyimpangan atau nilai _error_ dari posisi ideal (_setpoint_). Selain itu, _stringkondisi_ berperan sebagai basis logika untuk menentukan tindakan korektif berupa penyesuaian _duty cycle_ pada motor kiri dan kanan agar robot dapat kembali ke tengah lintasan.
 
 ### 7. KODE PROGRAM
 
@@ -204,6 +200,12 @@ void loop() {
 ```
 
 ## 8. KESIMPULAN
-
+Berdasarkan hasil praktikum, dapat disimpulkan bahwa implementasi algoritma _error detection memory_ meningkatkan stabilitas navigasi robot _line follower_ secara signifikan. Penggunaan variabel untuk menyimpan nilai _last error_ memungkinkan robot mempertahankan orientasi gerak saat sensor kehilangan deteksi garis secara mendadak. Sistem kendali PWM yang dikombinasikan dengan pemetaan nilai _error_ mampu menghasilkan respon motor yang lebih proporsional terhadap penyimpangan posisi robot dari _setpoint_. Pemrosesan _stringkondisi_ menjadi representasi numerik memudahkan penentuan koreksi kecepatan motor kiri dan kanan secara spesifik. Secara keseluruhan, metode ini efektif dalam menangani kondisi transisi pada lintasan yang kompleks dibandingkan sistem kendali tanpa memori.
 
 ## 9. LAMPIRAN
+Link dokumentasi video:
+https://drive.google.com/drive/folders/1Lgzs5CNa1o80Mx8uDIgMI3fhwKW2n_Xc?usp=sharing
+
+Dokumentasi:
+
+![[modul-03.jpg | 500]]

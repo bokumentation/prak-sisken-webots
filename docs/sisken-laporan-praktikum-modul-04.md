@@ -3,15 +3,12 @@ NIM: 607022400009
 Kelas: D3TK-48-01
 
 ---
-
-<h1>
 <center>
-
+<h1>
 LAPORAN PRAKTIKUM SISTEM KENDALI <br>
 MODUL 04: Sistem Kendali PID Kasus P
-
-</center>
 </h1>
+</center>
 
 ---
 
@@ -22,8 +19,7 @@ Sistem Kendali PID Kasus P
 
 Maksud dan tujuan dari praktikum ini adalah:
 1. Mahasiswa dapat memahami fungsi dan cara kerja PID pada motor DC
-2. Mahasiswa dapat membuat program sistem kendali berbasis PID dengan error yang
-dihubungkan dengan konstanta proporsional
+2. Mahasiswa dapat membuat program sistem kendali berbasis PID dengan error yang dihubungkan dengan konstanta proporsional
 
 ## 3. PERALATAN DAN BAHAN
 
@@ -128,9 +124,9 @@ Dari blok diagram di atas dapat dijelaskan sebagai berikut:
 ### 5.1. PERTANYAAN PRAKTIKUM
 
 1. Jelaskan fungsi dari variabel yang telah ditambahkan pada program di atas terhadap mekanisme sistem kendali pada robot line follower!
-    Jawab: 
+    Jawab: Variabel-variabel tersebut memiliki fungsi spesifik dalam membangun algoritma kendali proporsional. Kp berfungsi sebagai pengali untuk menentukan sensitivitas respon motor terhadap penyimpangan, sementara error merepresentasikan jarak posisi robot saat ini dari _setpoint_. moveControl digunakan untuk menghitung besarnya nilai koreksi yang harus ditambahkan atau dikurangi pada kecepatanSetPoint agar menghasilkan kecepatanMotorKanan dan kecepatanMotorKiri yang sesuai untuk mengarahkan robot kembali ke tengah garis.
 2. Jelaskan fungsi dari kode program di atas!
-    Jawab: 
+    Jawab: Kode program tersebut berfungsi untuk mengimplementasikan kendali diferensial pada penggerak robot berdasarkan input sensor biner. Program memetakan kombinasi pembacaan delapan sensor menjadi nilai numerik error, kemudian menghitung sinyal kendali proporsional untuk memanipulasi _duty cycle_ PWM pada masing-masing motor. Melalui fungsi _constrain_, program memastikan nilai output PWM tetap berada dalam batas operasional motor, sementara variabel _lastError_ menjamin robot tetap memiliki referensi arah saat kehilangan deteksi garis.
 
 ### 5.2. KODE PROGRAM
 
@@ -314,6 +310,13 @@ void stopMotors() {
 
 ## 6. KESIMPULAN
 
-
+Berdasarkan hasil praktikum, dapat disimpulkan bahwa penerapan sistem kendali proporsional (P) mampu menghasilkan respon koreksi yang linear terhadap besarnya simpangan error pada robot _line follower_. Penggunaan konstanta $K_p$ yang dikalikan dengan nilai error menghasilkan nilai _moveControl_ untuk mengatur perbedaan kecepatan motor kiri dan kanan secara otomatis. Sistem kendali ini terbukti efektif dalam mempercepat waktu respon (_rise time_) robot saat kembali menuju _setpoint_ dibandingkan kendali PWM standar. Namun, nilai $K_p$ yang terlalu tinggi dapat menyebabkan osilasi pada robot, sehingga diperlukan proses _trial and error_ untuk mendapatkan nilai konstanta yang optimal. Navigasi robot menjadi lebih halus karena perubahan kecepatan terjadi secara gradual sesuai dengan posisi sensor terhadap garis.
 
 ## 7. LAMPIRAN
+Link dokumentasi video:
+https://drive.google.com/drive/folders/1Lgzs5CNa1o80Mx8uDIgMI3fhwKW2n_Xc?usp=sharing
+
+Dokumentasi:
+![[modul-04-01.jpg | 500]]
+
+![[modul-04.jpg | 500]]
