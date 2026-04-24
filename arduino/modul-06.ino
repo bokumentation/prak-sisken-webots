@@ -1,3 +1,8 @@
+// =====================================================
+// PROGRAM LINE FOLLOWER 8 SENSOR - MODUL 6 PRAKTIKUM
+// REV: 24 APRIL 2026
+// NOTE: Penambahan parameter Kp dan Kd, EEPROM dan Push Button
+// =====================================================
 // KP 15; KD 5
 
 #include <EEPROM.h>
