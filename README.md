@@ -130,16 +130,6 @@ Teknik modulasi lebar pulsa untuk mengontrol daya rata-rata yang dikirim ke beba
 ### Proportional-Integral-Derivative (PID)
 Algoritma kendali umpan balik yang menghitung error sebagai perbedaan antara setpoint dan variabel proses. Pada modul 4 dan 5, PID diimplementasikan untuk kontrol yang lebih presisi.
 
-## 👥 Kontributor
-
-**Mahasiswa:**
-- Nama: Ibrahim Fauzi Rahman
-- NIM: 607022400009
-- Kelas: D3TK-48-01
-
-**Institusi:**
-- Politeknik Elektronika Negeri Surabaya (PENS)
-- Program Studi D3 Teknik Komputer
 
 ## 📄 Lisensi
 
